@@ -1,0 +1,25 @@
+@model List<PdfFile>
+
+    <div>
+        <a asp-controller="PDF" asp-action="Crear" class="btn btn-outline-primary">Insertar PDF</a>
+        <table class="table table-borderless">
+            <thead>
+                <tr>
+                    <th>Nombre del archivo</th>
+                    <th>Opciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <td>@item.Nombre</td>
+                    <td>
+                        <a class="btn btn-outline-dark" asp-controller="PDF" asp-action="Descargar"
+                            asp-route-id="@item.Id">Descargar archivo</a>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
